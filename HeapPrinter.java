@@ -9,14 +9,25 @@ public class HeapPrinter {
 	
 	public static void printer(FibonacciHeap heap)
 	{
-		FibonacciHeap.HeapNode pointer, first;
-		first = ((FibonacciHeap) heap).getFirst();
+		FibonacciHeap.HeapNode pointer;
+		FibonacciHeap.HeapNode first =  heap.getFirst();
 		pointer = first;
 		int numberOfTrees = heap.getNumberOfTrees();
 		String[] listOfstrs = new String[numberOfTrees];
-		while (pointer != first) {
-			
+		if (pointer == null) {
+			System.out.println("The heap is empty");
+			return;
 		}
+		int counter = 0;
+		do {
+			listOfstrs[counter++] = printer(pointer) ;
+			pointer = pointer.getNext();
+		} while (pointer != first);
+	}
+
+	private static String printer(FibonacciHeap.HeapNode pointer) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
